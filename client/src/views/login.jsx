@@ -2,6 +2,7 @@
 import { useState } from "react"
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 export default function Login() {
     const [email, setEmail] = useState('')
@@ -26,7 +27,12 @@ export default function Login() {
             navigate("/")
 
         } catch (error) {
-            console.log(error)
+            Swal.fire({
+                title: 'Error!',
+                text: error.response.data,
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
         }
     }
 

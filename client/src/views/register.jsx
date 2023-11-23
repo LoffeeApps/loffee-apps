@@ -3,6 +3,7 @@
 import { useState } from "react"
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 export default function Register() {
     const navigate = useNavigate()
@@ -12,6 +13,7 @@ export default function Register() {
     const [gender, setGender] = useState('')
     const [age, setage] = useState('')
     const [imageUrl, setImageUrl] = useState('')
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -26,7 +28,12 @@ export default function Register() {
 
             navigate('/login')
         } catch (error) {
-            console.log(error)
+            Swal.fire({
+                title: 'Error!',
+                text: error.response.data,
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
         }
     }
 
