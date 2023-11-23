@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { io } from "socket.io-client";
+import { Navbar } from "../components/navbar";
 
 
 export const Message = () => {
@@ -75,7 +76,6 @@ export const Message = () => {
 
         socket.on('new-message', (payload) => {
             setMessages([...messages, payload])
-            console.log(messages)
         })
     }, [])
 
@@ -88,6 +88,7 @@ export const Message = () => {
 
     return(
         <>
+        <Navbar/>
              <div className="container">
                 <div className="row h-100">
                     <div>
@@ -102,7 +103,7 @@ export const Message = () => {
                                 <div key={el.userId1} className="card border-secondary ms-5 mt-3 mb-3" style={{ maxWidth: "100rem", borderRadius: "10px" }}>
                                     <div className="card-header d-flex justify-content-between align-items-center" style={{ fontSize: "15px" }}>
                                         <div className="d-flex align-items-center">
-                                            {el.message}
+                                            {el.userId1}: {el.message}
                                         </div>
                                     </div>
                                 </div>
