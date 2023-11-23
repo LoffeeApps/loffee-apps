@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { Navbar } from "../components/navbar"
 
 
 export const Chat = () => {
@@ -37,6 +38,7 @@ export const Chat = () => {
 
     return (
         <>
+        <Navbar/>
             <div className="container mt-3">
                 <div className="row h-100">
                     <div id="carouselExampleAutoplaying" className="carousel slide mx-3 mt-3" data-bs-ride="carousel">
@@ -54,24 +56,8 @@ export const Chat = () => {
                             <div className="col-md-9 me-3">
                                 <div className="carousel-inner mb-3 pe-3">
                                     <div className="carousel-item active">
-                                        <img src="https://i.imgur.com/Zmxio2G.jpg" className="d-block w-100" alt="overwatch" />
+                                        <img src="https://i0.wp.com/tintaresah.com/wp-content/uploads/2022/07/Horimiya-Season-2.webp?fit=1920%2C1080&ssl=1" className="d-block w-100" alt="overwatch" />
                                         <div className="carousel-caption d-none d-md-block">
-                                            <h5 style={{ fontWeight: "bold" }}>Overwatch 2</h5>
-                                            <p>Team up with friends regardless of platform and jump into the reimagined PvP experience.</p>
-                                        </div>
-                                    </div>
-                                    <div className="carousel-item">
-                                        <img src="https://i.imgur.com/IGzvjRV.jpg" className="d-block w-100" alt="dota2" />
-                                        <div className="carousel-caption d-none d-md-block">
-                                            <h5 style={{ fontWeight: "bold" }}>Dota 2</h5>
-                                            <p>A Modern Multiplayer Masterpeace.</p>
-                                        </div>
-                                    </div>
-                                    <div className="carousel-item">
-                                        <img src="https://i.imgur.com/E78rIt6.jpg" className="d-block w-100" alt="genshin" />
-                                        <div className="carousel-caption d-none d-md-block">
-                                            <h5 style={{ fontWeight: "bold" }}>Genshin Impact</h5>
-                                            <p>Teach The Weeboo Save the World.</p>
                                         </div>
                                     </div>
                                 </div>
