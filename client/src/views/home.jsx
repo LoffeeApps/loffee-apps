@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { setUsers as setUsersRedux } from "../features/users/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "../components/navbar";
+import Swal from 'sweetalert2'
 
 export default function Home() {
 
@@ -25,7 +26,12 @@ export default function Home() {
             dispatch(setUsersRedux(data))
 
         } catch (error) {
-            console.log(error)
+            Swal.fire({
+                title: 'Error!',
+                text: error.response.data,
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
         }
     }
 
@@ -42,7 +48,12 @@ export default function Home() {
             })
             navigate('/friends')
         } catch (error) {
-            console.log(error)
+            Swal.fire({
+                title: 'Error!',
+                text: error.response.data,
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
         }
     }
 

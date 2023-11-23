@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { Navbar } from "../components/navbar"
-
+import Swal from 'sweetalert2'
 
 export const Chat = () => {
     const [users, setUsers] = useState([])
@@ -22,7 +22,12 @@ export const Chat = () => {
             setUsers(data.convo)
             setUserLogin(data.username)
         } catch (error) {
-            console.log(error)
+            Swal.fire({
+                title: 'Error!',
+                text: error.response.data,
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
         } finally {
             setLoading(false)
         }

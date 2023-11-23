@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { io } from "socket.io-client";
 import { Navbar } from "../components/navbar";
+import Swal from 'sweetalert2'
 
 
 export const Message = () => {
@@ -28,7 +29,12 @@ export const Message = () => {
             setConvos(data.convo)
             setMessages(data.convo.Messages)
         } catch (error) {
-            console.log(error)
+            Swal.fire({
+                title: 'Error!',
+                text: error.response.data,
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
         } finally {
             setLoading(false)
         }
@@ -62,7 +68,12 @@ export const Message = () => {
 
             getConvo()
         } catch (error) {
-            console.log(error)
+            Swal.fire({
+                title: 'Error!',
+                text: error.response.data,
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
         }
     }
 
